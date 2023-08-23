@@ -1,0 +1,44 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>secondMethod</title>
+</head>
+<body>
+    <script>
+        var num1 = prompt("Enter 1st number");
+        var num2 = prompt("Enter second numebr : ");
+        var sum = parseInt (num1)+ parseInt (num2);
+        document.write("Sum is : "+sum);
+    </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Method</title>
+</head>
+<body>
+    <h3>Addition</h3>
+    <p>Enter 1st Num : <input type="text" id="one"></p>
+    <p>Enter 2nd Num : <input type="text" id="two"></p>
+    <button onclick="add()">Add</button>
+    <p id="sum"></p>
+
+    <script>
+        function add(){
+            let num1,num2,res;
+            num1=parseInt(document.getElementById("one").value);
+            num2=parseInt(document.getElementById("two").value);
+            res = num1+num2;
+            document.getElementById("sum").innerText = res;
+        }
+    </script>
+</body>
+</html>
