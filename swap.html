@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap</title>
+</head>
+<body>
+    <p>SWAP</p>
+    <p>Enter 1st Num : <input id="one" type="text"></p>
+    <p>Enter 2nd Num : <input id="two" type="text"></p>
+    <button onclick='swap()'>Click Me!</button><br/>
+
+    <!-- <script>
+        function swap(){
+            var x = parseInt(document.getElementById("one").value);
+            var y = parseInt(document.getElementById("two").value);
+            document.getElementById("one").value=y;
+            document.getElementById("two").value=x;
+        }
+    </script> -->
+
+    <script>
+        function swap(){
+            var a =parseInt (document.getElementById('one').value) ;
+            var b =parseInt (document.getElementById('two').value ) ;
+            a = a+b;        //a=a*b   a=a^b;
+            b = a-b;        //b=a/b   b=a^b;
+            a = a-b;        //a=a/b   a=a^b;
+            document.getElementById("one").value=a;
+            document.getElementById("two").value=b;
+            
+        }
+    </script>
+
+</body>
+</html>
