@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>common</title>
+</head>
+<body>
+    <p>Armstrong Number</p>
+    <p>Enter Number : <input id="num" type="text"></p>
+    <button onclick="arms()">GET !</button>
+    <p id="res"></p>
+    <script>
+        function countDigits(numb){
+             return numb.toString().length;
+        }
+
+        function arms(){
+            var a = parseInt(document.getElementById("num").value);
+            var b = a;
+            var digitCount = countDigits(b);
+            var rem,resu =1,temp=0;
+            while(b>0){
+                rem = b%10;
+                for(var i=0;i<digitCount;i++){
+                    resu *=rem;
+                }
+                temp = temp+resu;
+                resu=1;
+                b=Math.trunc(b/10);
+            }
+            console.log(temp);
+            if(temp==a){
+                document.getElementById("res").innerText = "YES";
+            }
+            else{
+                document.getElementById("res").innerText = "NO";
+            }
+        }
+    </script>
+    
+</body>
+</html>
