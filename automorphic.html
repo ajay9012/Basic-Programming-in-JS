@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automorphic Number</title>
+</head>
+<body>
+    <h3>Automorphic Number</h3>
+    <p>Enter Number : <input id="num" type="text"> </p>
+    <p>To check whether the entered digit is <a href="https://www.geeksforgeeks.org/automorphic-number/">automorphic number</a>  or not Please click on the <strong>Check</strong> button</p>
+    <button onclick="auto()" >Check !</button>
+    <p id="res"></p>
+    <script>
+        function auto(){
+            let num1 = parseInt(document.getElementById("num").value);
+            var temp = num1*num1;
+            if((temp%10)==5){
+              document.getElementById("res").innerText = "Yes "+ num1 +" is an automorphic number";
+            }
+            else{
+                document.getElementById("res").innerText = "No "+ num1 +" is not an automorphic number";
+            }
+        }
+    </script>
+</body>
+</html>
