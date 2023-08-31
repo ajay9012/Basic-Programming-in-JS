@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countingDistinct</title>
+</head>
+<body>
+    
+   <h3>Counting Distinct</h3>
+    <p>Enter elements in the array : <input type="text " id="inputField"></p> 
+    <button onclick="processInput()" >Submit</button>
+    <p id="res"></p>
+    <!--    1st Method  - Naive Approach
+        
+        <script>
+        function processInput(){
+            var inputString = document.getElementById("inputField").value;
+            var inputArray = inputString.split(",");
+            var count = 1, flag =0;
+            for(var i=1;i<inputArray.length;i++){
+                for(var j=0;j<i;j++){
+                    flag = 0;
+                    if(inputArray[i]==inputArray[j]){
+                        flag++;
+                        break;
+                    }
+                }
+                if(flag==0){
+                     count++;   
+                }
+            }
+            document.getElementById("res").innerText = count
+
+            
+        }
+    </script> -->
+
+    <!--     2nd method  - Using HashSet  
+
+    <script>
+        function processInput(){
+        var inputString = document.getElementById("inputField").value;
+        var inputArray = inputString.split(",");
+        let hashSet = new Set();
+        for(var i=0;i<inputArray.length;i++){
+            hashSet.add(inputArray[i]);
+        }
+        document.getElementById('res').innerText= hashSet.size;
+    }
+    </script>       -->
+
+    <!-- 3rd method  -  using HashMap -->
+
+    <script>
+        function processInput(){
+            var inputString = document.getElementById("inputField").value;
+            var inputArray = inputString.split(",");
+            let distinct = new Map();
+            for(let i=0;i<inputArray.length;i++){
+                let current = inputArray[i];
+                if (distinct.has(current)){
+                    distinct.set(current,distinct.get(current)+1);
+                }
+                else{
+                    distinct.set(current,1);
+                }
+            }
+            document.getElementById('res').innerText =  distinct.size;
+        }
+
+    </script>
+
+</body>
+</html>
