@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram</title>
+</head>
+<body>
+    <h2>Anagram String</h2>
+    <label for="">Enter 1st String : </label>
+    <input type="text" id="inp1"><br>
+    <label for="">Enter 2nd String : </label>
+    <input type="text" id="inp2"><br>
+    <button onclick="anagrams()">Check!</button>
+    <p id="res"></p>
+    <script>
+        function anagrams(){
+
+            let str1 = document.getElementById("inp1").value;
+            let str2 = document.getElementById("inp2").value;
+            if(str1.length != str2.length)
+                document.getElementById("res").innerText="Not Anagram";
+            else{
+                const arr1 = str1.split("");
+                const arr2 = str2.split("");
+                var temp = 0,flag=0;
+                for(var i=0;i<arr1.length;i++){
+                   temp=0;
+                    for(var j=0;j<arr2.length;j++){
+                        if(arr1[i]===arr2[j]){
+                            console.log(arr1[i]);
+                            console.log(arr2[j]);
+                            temp=1;
+                        }
+                    }
+                    if(temp==0){
+                        flag++;
+                    }
+                }
+                if(flag>0){
+                    document.getElementById("res").innerText="Not Anagram";
+                }
+                else if(flag==0){
+
+                    document.getElementById("res").innerText="Anagram";
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
