@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraction Addition</title>
+</head>
+<body>
+    <h2>Fraction Addition</h2>
+    <label>Enter 1st fraction Numerator value : </label>
+    <input type="number" id="fn"><br>
+    <label>Enter 1st fraction Denominator value : </label>
+    <input type="number" id="fd"><br>
+    <label>Enter 2nd fraction Numerator value : </label>
+    <input type="number" id="sn"><br>
+    <label>Enter 2nd fraction Dinominator value : </label>
+    <input type="number" id="sd"><br>
+    <button onclick="addition()" >Add</button>
+    <p>Result is : <span id="res"></span> </p>
+
+    <script>
+        function lcmfs(fd,sd){
+            let max = (fd>sd) ? fd : sd;
+            for(let i = max;i<fd*sd;i++){
+                if(i%fd===0 && i%sd===0){
+                    return i;
+                }
+            }
+        }
+
+        function addition() {
+            let fn = document.getElementById("fn").value;
+            let fd = document.getElementById("fd").value;
+            let sn = document.getElementById("sn").value;
+            let sd = document.getElementById("sd").value;
+            lcm = lcmfs(fd,sd);
+            let a = (lcm/fd)*fn;
+            let b = (lcm/sd)*sn;
+            let c = (a+b);
+            console.log(c);
+             document.getElementById("res").innerHTML= `The sum of ${fn}/${fd} and ${sn}/${sd} is equal to ${(a+b)}/${lcm}`;
+           
+            // document.getElementById("res").innerHTML=c+"/"+lcm;
+           
+        }
+    </script>
+</body>
+</html>
