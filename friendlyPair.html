@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendly Pair</title>
+    <style>
+        #intro{
+            cursor: pointer;
+        }
+        #intro:hover{
+            color: blue;
+        }
+        #desc{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="intro">Friendly Pair</h2>
+    <p id="desc">To check whether two numbers are friendly pair or not firstly you need to take num1 and find out its divisors from 1 to less than num1 and same for the num2 also after that add those divisors subsequently.Now we have add1 and add2 variables that holds the addition of divisors of num1 & num2 after that check for this condition (add1/num1)===(add2/num2)  if it comes to be true then it is a friendly pair if it's not then it is not a friendly pair.</p>
+    <label>Enter 1st num : </label>
+    <input type="number" id="first" min="1" required ><br><br>
+    <label>Enter 2nd num : </label>
+    <input type="number" id="second" min="1" required> <br><br>
+    <button id="check">Check!</button>
+    <p id="res"></p>
+
+    <script>
+
+        const toggle = document.getElementById("intro");
+        const hiddenpara = document.getElementById("desc");
+        toggle.addEventListener("click",function(){
+            if(hiddenpara.style.display === "none"){
+                hiddenpara.style.display = "block";
+            }
+            else{
+                hiddenpara.style.display = "none";
+            }
+        });
+
+        document.getElementById("check").addEventListener("click",function(){
+            var num1 = parseInt(document.getElementById("first").value);
+            var num2 = parseInt(document.getElementById("second").value);
+            var num1add = 0, num2add=0;
+            for(var i=1;i<num1;i++){
+                if(num1%i===0){
+                    num1add=num1add+i;
+                }
+            }
+            for(var i=0;i<num2;i++){
+                if(num2%i===0){
+                    num2add=num2add+i;
+                }
+            }
+            console.log(num2add);
+            if((Math.floor(num1add/num1))===(Math.floor(num2add/num2))){
+                alert(` ${num1} and ${num2} are friendly pair`)
+            }
+            else{
+                document.getElementById("res").innerHTML= `${num1} and ${num2} are not friendly pair`;
+            }
+        });
+    </script>
+</body>
+</html>
